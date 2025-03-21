@@ -1,1 +1,1 @@
-# Skycast_WeatherHub
+# Skycast-WeatherHub
