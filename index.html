@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <button class="toggle-sidebar" onclick="toggleSidebar()">☰</button>
+            <!-- Sidebar -->
+            <div class="sidebar"> 
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="Images/Logo.png" alt="SkyCast Logo" />
+                </div>
+
+                <ul class="nav">
+                    <!-- Dashboard Link -->
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard-icon lucide-layout-dashboard">
+                                    <rect width="7" height="9" x="3" y="3" rx="1"/>
+                                    <rect width="7" height="5" x="14" y="3" rx="1"/>
+                                    <rect width="7" height="9" x="14" y="12" rx="1"/>
+                                    <rect width="7" height="5" x="3" y="16" rx="1"/>
+                                </svg>
+                            </i> 
+                            Dashboard
+                        </a>
+                    </li>
+
+                    <!-- Map Link -->
+                    <li>
+                        <a href="map.html">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-icon lucide-map"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/></svg>
+                            </i>
+                            Map
+                        </a>
+                    </li>
+
+                    <!-- Saved Locations Link -->
+                    <li>
+                        <a href="saved.html">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pin-icon lucide-pin"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg>
+                            </i> 
+                            Watch List
+                        </a>
+                    </li>
+                    
+                    <!-- Calendar Link -->
+                    <li>
+                        <a href="calendar.html">
+                            <i class="icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-icon lucide-calendar"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+                            </i> 
+                            Calendar
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <!-- Main -->
+            <div class="main">
+
+                <!-- Head Part -->
+                <div class="main-header">
+                    <div class="date-info">
+                        <h2>January 04, 2025</h2>
+                        <span>Thursday</span>
+                    </div>
+
+                    <div class="main-tools">
+                        <div class="search-container">
+                            <input type="text" placeholder="Search location here">
+                            <span class="search-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search-icon lucide-search"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+                            </span>
+                        </div>
+
+
+                        <div class="icons">
+                            <i class="icon-bell">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell-icon lucide-bell"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
+                            </i>
+                            <i class="icon-share">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-share2-icon lucide-share-2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+                            </i>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- Overview Part -->
+                <div class="overview-section">
+                    <h2>Today Overview</h2>
+                    <div class="overview-grid">
+                        <div class="overview-card">
+                            <div class="overview-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="lightgray" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind-icon lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg></div>
+                            <div class="overview-data">
+                                <h3>Wind Speed</h3>
+                                <p class="reading">
+                                    <span class="value">12</span><span class="unit">km/h</span>
+                                    <span class="change down">↓ 2 km/h</span>
+                                </p>
+                            </div>
+                        </div>
+                
+                        <div class="overview-card">
+                            <div class="overview-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="lightgray" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-rain-wind-icon lucide-cloud-rain-wind"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="m9.2 22 3-7"/><path d="m9 13-3 7"/><path d="m17 13-3 7"/></svg></div>
+                            <div class="overview-data">
+                                <h3>Rain Chance</h3>
+                                <p class="reading">
+                                    <span class="value">24</span><span class="unit">%</span>
+                                    <span class="change up">↑ 10%</span>
+                                </p>
+                            </div>
+                        </div>
+                
+                        <div class="overview-card">
+                            <div class="overview-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge-icon lucide-gauge"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></div>
+                            <div class="overview-data">
+                                <h3>Pressure</h3>
+                                <p class="reading">
+                                    <span class="value">720</span><span class="unit">hPa</span>
+                                    <span class="change up">↑ 32 hPa</span>
+                                </p>
+                            </div>
+                        </div>
+                
+                        <div class="overview-card">
+                            <div class="overview-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="lightgray" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun-icon lucide-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></div>
+                            <div class="overview-data">
+                                <h3>UV Index</h3>
+                                <p class="reading">
+                                    <span class="value">2.3</span>
+                                    <span class="change down">↓ 0.3</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="overview-icon"><img width="30" height="30" src="https://img.icons8.com/parakeet-line/48/humidity.png" alt="humidity"/></div>
+                            <div class="overview-data">
+                                <h3>Humidity</h3>
+                                <p class="reading">
+                                    <span class="value">68</span><span class="unit">%</span>
+                                    <span class="change down">↓ 4%</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="overview-card">
+                            <div class="overview-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="lightgray" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thermometer-sun-icon lucide-thermometer-sun"><path d="M12 9a4 4 0 0 0-2 7.5"/><path d="M12 3v2"/><path d="m6.6 18.4-1.4 1.4"/><path d="M20 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/><path d="M4 13H2"/><path d="M6.34 7.34 4.93 5.93"/></svg></div>
+                            <div class="overview-data">
+                                <h3>Feels Like</h3>
+                                <p class="reading">
+                                    <span class="value">27</span><span class="unit">°C</span>
+                                    <span class="change up">↑ 1°C</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Temperature Chart Section -->
+                <h3 id="chart-heading">Average Daily Temperature</h3>
+                <div class="chart-section">
+                    <div class="chart-container">
+                        <canvas id="temperatureChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Details -->
+            <div class="details">
+                <div class="details-header">
+                    <p class="location">Tegal, Indonesia</p>
+                    <p class="time">08:54 AM</p>
+                    <div class="weather-condition">
+                        <div class="condition-temp">
+                            <p class="condition">Partly Cloudy</p>
+                            <h1 class="temperature">23°C</h1>
+                        </div>
+                        <div class="weather-icon"><svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-sun-icon lucide-cloud-sun"><path d="M12 2v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="M20 12h2"/><path d="m19.07 4.93-1.41 1.41"/><path d="M15.947 12.65a4 4 0 0 0-5.925-4.128"/><path d="M13 22H7a5 5 0 1 1 4.9-6H13a3 3 0 0 1 0 6Z"/></svg></div>
+                    </div>
+                </div>
+
+                <!-- Hourly Temperature Section -->
+                <div class="hourly-temp">
+                    <h4>24-Hour Forecast</h4>
+                    <div class="temp-scroll-container">
+                        <div class="temp-scroll-wrapper">
+                            <!-- 24 hours of temperature data -->
+                            <div class="temp-hour">
+                                <span>12AM</span>
+                                <div class="temp-value">23°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>1AM</span>
+                                <div class="temp-value">22°</div>
+                            </div>
+                            <!-- Add all 24 hours similarly -->
+                            <div class="temp-hour">
+                                <span>2AM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>3AM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>4AM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>5AM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>6AM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>7AM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>8AM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>9AM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>10AM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>11AM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>12PM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>1PM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>2PM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>3PM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>4PM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>5PM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>6PM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>7PM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>8PM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>9PM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>10PM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                            <div class="temp-hour">
+                                <span>11PM</span>
+                                <div class="temp-value">24°</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sunrise & Sunset Block -->
+                <div class="sun-times">
+                    <h4>Sunrise & Sunset</h4>
+                    <div class="sun-row">
+                        <div class="sun-box">
+                            <div class="sun-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sunrise-icon lucide-sunrise"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg></div>
+                            <div class="sun-info">
+                                <p class="sun-label">Sunrise</p>
+                                <p class="sun-time">5:50 AM</p>
+                                <p class="sun-subtext">4 hours ago</p>
+                            </div>
+                        </div>
+                        <div class="sun-box">
+                            <div class="sun-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sunset-icon lucide-sunset"><path d="M12 10V2"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m16 6-4 4-4-4"/><path d="M16 18a4 4 0 0 0-8 0"/></svg></div>
+                            <div class="sun-info">
+                                <p class="sun-label">Sunset</p>
+                                <p class="sun-time">5:50 PM</p>
+                                <p class="sun-subtext">in 9 hours</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wind Information Block -->
+                <div class="wind-info">
+                    <h4>Wind Information</h4>
+                    <div class="wind-row">
+                        <div class="wind-box">
+                            <p class="wind-label">Wind Speed</p>
+                            <p class="wind-value">12 km/h</p>
+                        </div>
+                        <div class="wind-box">
+                            <p class="wind-label">Wind Gust</p>
+                            <p class="wind-value">18 km/h</p>
+                        </div>
+                        <div class="wind-box wind-direction">
+                            <p class="wind-label">Direction</p>
+                            <div class="wind-direction-container">
+                                <span class="wind-direction-text">NW</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lifestyle Tips Section -->
+                <div class="lifestyle-tips">
+                    <h4>Lifestyle Tips</h4>
+                    <div class="tips-container">
+                        <div class="tip-card">
+                            <div class="tip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-volleyball-icon lucide-volleyball"><path d="M11.1 7.1a16.55 16.55 0 0 1 10.9 4"/><path d="M12 12a12.6 12.6 0 0 1-8.7 5"/><path d="M16.8 13.6a16.55 16.55 0 0 1-9 7.5"/><path d="M20.7 17a12.8 12.8 0 0 0-8.7-5 13.3 13.3 0 0 1 0-10"/><path d="M6.3 3.8a16.55 16.55 0 0 0 1.9 11.5"/><circle cx="12" cy="12" r="10"/></svg></div>
+                            <div class="tip-content">
+                                <p>Light clothing recommended</p>
+                            </div>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-umbrella-icon lucide-umbrella"><path d="M22 12a10.06 10.06 1 0 0-20 0Z"/><path d="M12 12v8a2 2 0 0 0 4 0"/><path d="M12 2v1"/></svg></div>
+                            <div class="tip-content">
+                                <p>67% chance of rain tonight</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+<script>
+
+    // Toggle Sidebar for mobile
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        const toggleBtn = document.querySelector('.toggle-sidebar');
+
+        sidebar.classList.toggle('mobile-active');
+
+        if (sidebar.classList.contains('mobile-active')) {
+        toggleBtn.innerHTML = '✕';
+        } else {
+        toggleBtn.innerHTML = '☰';
+        }
+    }
+
+
+    // Chart.js configuration for daily temperature chart
+const ctx = document.getElementById('temperatureChart').getContext('2d');
+
+// Gradient background for fill
+const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+gradient.addColorStop(0, 'rgba(0, 0, 0, 0.4)');
+gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Jan 02', 'Jan 03', 'Jan 04', 'Jan 05', 'Jan 06'],
+    datasets: [{
+      label: 'Avg Temp (°C)',
+      data: [26, 29, 18, 32, 20],
+      borderColor: '#ccc',
+      backgroundColor: gradient,
+      borderWidth: 2,
+      fill: true,
+      tension: 0.3,
+      pointRadius: 0,
+      pointHoverRadius: 6,
+      pointBackgroundColor: 'lightgray',
+      pointBorderColor: 'white',
+      pointBorderWidth: 2,
+      pointHitRadius: 15
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    animation: {
+      duration: 800,
+      easing: 'easeOutQuad'
+    },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#fff',
+        titleColor: '#000',
+        bodyColor: '#000',
+        borderColor: 'black',
+        borderWidth: 1,
+        padding: 12,
+        cornerRadius: 8,
+        displayColors: false,
+        caretSize: 6,
+        caretPadding: 6,
+        titleFont: {
+            family: 'Poppins',
+            size: 1,       
+            weight: '400'
+        },
+        bodyFont: {
+            family: 'Poppins',
+            size: 13,
+            weight: '500'
+        },
+        callbacks: {
+            title: () => '',
+
+            label: function(context) {
+            return [
+                'Temperature: ' + context.formattedValue + ' °C'
+            ];
+            },
+
+            afterLabel: function(context) {
+            return 'Date: ' + context.label;
+            }
+        },
+        // Custom text styling
+        bodySpacing: 6,
+        boxPadding: 6
+        }
+
+    },
+    scales: {
+      y: {
+        beginAtZero: false,
+        min: 15,
+        max: 35,
+        ticks: {
+          color: '#666666',
+          font: {
+            family: 'Poppins',
+            size: 12,
+            weight: '500'
+          },
+          maxTicksLimit: 5,
+          callback: function(value) {
+            return value + '°C';
+          }
+        },
+        grid: {
+          color: 'rgba(0, 0, 0, 0.05)',
+          drawBorder: false
+        }
+      },
+      x: {
+        offset: true,
+        ticks: {
+          color: '#666666',
+          font: {
+            family: 'Poppins',
+            size: 12,
+            weight: '500'
+          }
+        },
+        grid: {
+          display: false,
+          drawBorder: false
+        }
+      }
+    },
+    interaction: {
+      intersect: false,
+      mode: 'nearest',
+      axis: 'x'
+    },
+    elements: {
+      point: {
+        hoverRadius: 8,
+        hoverBorderWidth: 2
+      },
+      line: {
+        hoverBorderWidth: 2
+      }
+    },
+    hover: {
+      mode: 'nearest',
+      intersect: false,
+      animationDuration: 300
+    }
+  }
+}); 
+
+
+
+// Scrollable temperature section
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollContainer = document.getElementById('scrollContainer');
+    const scrollWrapper = document.getElementById('scrollWrapper');
+
+    // Enable mouse wheel scrolling
+    scrollContainer.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        this.scrollLeft += e.deltaY;
+    });
+});
+
+
+
+</script>
+
+</html>
