@@ -225,11 +225,55 @@ hr {
   opacity: 0.3;
 }
 
-.overview-section h2 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 12px;
+
+.overview-header {
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
 }
+
+.overview-header.no-gap {
+  gap: 2px;
+}
+
+.overview-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.location-link {
+  display: none;
+  font-size: 1rem;
+  color: #666;
+  text-decoration: none;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+@media (max-width: 1023px) {
+  .location-link {
+    display: inline;
+  }
+}
+
+.location-link.new-line {
+  flex-basis: 100%;
+  text-align: left;
+  margin-top: 0.25rem;
+  margin-left: 0;
+  white-space: normal;
+}
+
+.location-link:focus,
+.location-link:hover {
+  text-decoration: underline;
+  color: #666;
+}
+
+
 
 .overview-grid {
   display: grid;
@@ -350,7 +394,7 @@ hr {
     font-size: 20px;
     font-weight: 600;
     margin-top: 15px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     position: relative;
     display: inline-block;
     color: #222;
@@ -506,6 +550,8 @@ body:has(.chart-section:hover) #chart-heading::after {
 
 
 /* Hourly Temperature Section */
+
+
 .hourly-temp {
     margin-bottom: 12px;
     width: 100%;
@@ -518,7 +564,6 @@ body:has(.chart-section:hover) #chart-heading::after {
     color: #ddd;
 }
 
-/* Scroll Container */
 .temp-scroll-container {
     width: 100%;
     overflow-x: auto;
@@ -583,6 +628,14 @@ body:has(.chart-section:hover) #chart-heading::after {
     font-weight: 600;
 }
 
+.temp-scroll-container {
+  scroll-behavior: smooth; /* Fallback for programmatic scrolls */
+  overscroll-behavior-x: contain; /* Prevent page bounce */
+}
+
+.temp-scroll-wrapper {
+  user-select: none; /* Prevent text selection during drag */
+}
 
 
 /* Sunrise & Sunset */
@@ -969,7 +1022,7 @@ body:has(.chart-section:hover) #chart-heading::after {
     display: flex;
     gap: 8px;
     flex-shrink: 1;
-    max-width: 70px; /* limit max space it takes */
+    max-width: 70px;
   }
 
   .icons i {
@@ -982,12 +1035,10 @@ body:has(.chart-section:hover) #chart-heading::after {
   }
 
   .icons i svg {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
   }
 }
-
-
 
 @media screen and (min-width: 1024px) and (max-width: 1199px) {
   .main {
