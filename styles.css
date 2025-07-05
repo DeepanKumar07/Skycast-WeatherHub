@@ -227,50 +227,42 @@ hr {
 
 
 .overview-header {
-  margin-bottom: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
-}
-
-.overview-header.no-gap {
-  gap: 2px;
-}
-
-.overview-header h2 {
-  margin: 0;
-  font-size: 1.2rem;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .location-link {
-  display: none;
-  font-size: 1rem;
-  color: #666;
-  text-decoration: none;
-  margin-left: auto;
-  white-space: nowrap;
+    display: none;
+    width: 100%;
+    font-size: 1rem;
+    color: #666;
+    text-decoration: none;
+    margin: 0.25rem 0 1rem 0;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
 }
 
-@media (max-width: 1023px) {
-  .location-link {
-    display: inline;
-  }
+.location-link:active {
+    background-color: transparent;
+    color: #666;
 }
 
-.location-link.new-line {
-  flex-basis: 100%;
-  text-align: left;
-  margin-top: 0.25rem;
-  margin-left: 0;
-  white-space: normal;
+.location-link:hover,
+.location-link:focus {
+    text-decoration: underline;
+    color: #666;
 }
 
-.location-link:focus,
-.location-link:hover {
-  text-decoration: underline;
-  color: #666;
+@media (max-width: 768px) {
+    .location-link {
+        display: block;
+    }
+    .overview-header {
+        margin-bottom: 0;
+    }
 }
 
 
@@ -376,7 +368,7 @@ hr {
 /* Chart Section */
 .chart-section {
     margin-top: 5px;
-    padding: 20px;
+    padding: 25px 20px 15px 25px;
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -412,7 +404,6 @@ hr {
     transition: width 0.3s ease;
 }
 
-
 #chart-heading:hover::after {
     width: 100%;
 }
@@ -436,12 +427,11 @@ hr {
     box-shadow: 0 6px 16px rgba(0,0,0,0.1);
 }
 
-
 body:has(.chart-section:hover) #chart-heading::after {
     width: 100%;
 }
-/* Add hover effects for main section headings */
 
+/* Add hover effects for main section headings */
 .overview-section h2,
 #chart-heading {
     position: relative;
