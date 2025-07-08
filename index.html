@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AtmoView</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="favicon" href="Images/Favicon.svg"/>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="card">
             <button class="toggle-sidebar" onclick="toggleSidebar()">☰</button>
+            
             <!-- Sidebar -->
             <div class="sidebar"> 
                 <!-- Logo -->
@@ -21,7 +23,7 @@
                 <ul class="nav">
                     <!-- Dashboard Link -->
                     <li>
-                        <a href="dashboard.html">
+                        <a href="index.html">
                             <i class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-dashboard-icon lucide-layout-dashboard">
                                     <rect width="7" height="9" x="3" y="3" rx="1"/>
@@ -86,14 +88,36 @@
                         </div>
 
 
-                        <div class="icons">
-                            <i class="icon-bell">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell-icon lucide-bell"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></svg>
-                            </i>
-                            <i class="icon-share">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-share2-icon lucide-share-2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
-                            </i>
+                    <div class="icons">
+                        <i class="icon-bell">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-bell-icon lucide-bell">
+                                <path d="M10.268 21a2 2 0 0 0 3.464 0" />
+                                <path
+                                    d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" />
+                            </svg>
+                        </i>
+                        <i class="icon-share">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-share2-icon lucide-share-2">
+                                <circle cx="18" cy="5" r="3" />
+                                <circle cx="6" cy="12" r="3" />
+                                <circle cx="18" cy="19" r="3" />
+                                <line x1="8.59" x2="15.42" y1="13.51" y2="17.49" />
+                                <line x1="15.41" x2="8.59" y1="6.51" y2="10.49" />
+                            </svg>
+                        </i>
+                    </div>
+                    <div id="popup" class="popup hidden">
+                        <div class="popup-box">
+                            <button class="popup-close" onclick="closePopup()">×</button>
+                            <div id="popup-title" class="popup-title">Notification</div>
+                            <div id="popup-content" class="popup-content"></div>
                         </div>
+                    </div>
+
                     </div>
                 </div>
 
@@ -101,7 +125,10 @@
 
                 <!-- Overview Part -->
                 <div class="overview-section">
-                    <h2>Today Overview</h2>
+                    <div class="overview-header">
+                        <h2>Today's Overview</h2>
+                    </div>
+                    <a href="#" class="location-link">Tegal, Indonesia</a>
                     <div class="overview-grid">
                         <div class="overview-card">
                             <div class="overview-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="lightgray" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wind-icon lucide-wind"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg></div>
@@ -126,7 +153,7 @@
                         </div>
                 
                         <div class="overview-card">
-                            <div class="overview-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge-icon lucide-gauge"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></div>
+                            <div class="overview-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000" id="Speedometer-Light--Streamline-Phosphor" height="28" width="28"><path d="M10.691015624999999 15.822665625 20.953209375 5.560471875c0.36121875000000003 -0.3366 0.951365625 -0.15594375 1.0622625 0.32518125 0.04785 0.20761875 -0.01051875 0.4254375 -0.155765625 0.581315625L11.5975125 16.7291625c-0.36121875000000003 0.3366 -0.951365625 0.15594375 -1.062253125 -0.32518125 -0.047859374999999996 -0.20761875 0.010509375000000001 -0.4254375 0.15575624999999998 -0.581315625Zm1.30843125 -7.45719375c0.766134375 -0.000778125 1.5272625 0.12343124999999999 2.2534125 0.367725 0.468225 0.15759375 0.9314625000000001 -0.250790625 0.8338218749999999 -0.735084375 -0.04531875 -0.224765625 -0.207103125 -0.40827187499999995 -0.42440625 -0.48140625 -5.780990624999999 -1.9486875000000001 -11.628928125 2.7671156249999997 -10.949549999999999 8.829759375 0.036121875 0.326428125 0.312975 0.57283125 0.641390625 0.570834375 0.023840625000000004 0.001565625 0.04776562499999999 0.001565625 0.071615625 0 0.351759375 -0.039159375 0.6053062499999999 -0.35585625 0.566559375 -0.7076625 -0.030121875 -0.26191875 -0.04618125 -0.5252625 -0.048103125 -0.7889062499999999 0.004715624999999999 -3.894553125 3.1607062499999996 -7.050543749999999 7.055259375 -7.055259375Zm10.475990625 1.699678125c-0.22546875 -0.43943437499999993 -0.842090625 -0.4699875 -1.10990625 -0.0550125 -0.12429375000000001 0.1926 -0.13640625 0.436875 -0.0317625 0.640809375 1.30515 2.5614375 1.504471875 5.54559375 0.551596875 8.257865625 -0.029165625 0.087871875 -0.111590625 0.146990625 -0.20417812500000002 0.146446875H2.3209125c-0.0929625 -0.0023437500000000003 -0.174553125 -0.06256875 -0.20416875 -0.150721875C-0.26034375 12.091696875 4.7838562499999995 4.966528125 11.999446875 4.944740625h0.09620625c1.625803125 0.0103875 3.2263875 0.402928125 4.672509375 1.14594375 0.441075 0.225890625 0.9612750000000001 -0.110409375 0.93635625 -0.605334375 -0.011559375 -0.229696875 -0.1447875 -0.435778125 -0.349490625 -0.540609375 -1.624771875 -0.833240625 -3.4227375 -1.2726656250000001 -5.248678125 -1.282771875h-0.10690312500000002C3.88974375 3.6659718750000003 -1.784296875 11.680828125 0.9066562499999999 19.331053125c0.210825 0.601125 0.77724375 1.0044187500000001 1.41425625 1.0069781249999998h19.356c0.6354375 -0.001565625 1.201228125 -0.40258125 1.4131875 -1.001634375 1.0722562500000001 -3.04434375 0.8501062500000001 -6.395099999999999 -0.6146625 -9.271246875Z" stroke-width="0.0938"></path></svg></div>
                             <div class="overview-data">
                                 <h3>Pressure</h3>
                                 <p class="reading">
@@ -204,32 +231,32 @@
                             <!-- 24 hours of temperature data -->
                             <div class="temp-hour">
                                 <span>12AM</span>
-                                <div class="temp-value">23°</div>
+                                <div class="temp-value">18°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>1AM</span>
-                                <div class="temp-value">22°</div>
+                                <div class="temp-value">21°</div>
                             </div>
                             <!-- Add all 24 hours similarly -->
                             <div class="temp-hour">
                                 <span>2AM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">20°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>3AM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">22°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>4AM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">16°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>5AM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">19°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>6AM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">21°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>7AM</span>
@@ -237,7 +264,7 @@
                             </div>
                             <div class="temp-hour">
                                 <span>8AM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">21°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>9AM</span>
@@ -245,19 +272,19 @@
                             </div>
                             <div class="temp-hour">
                                 <span>10AM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">28°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>11AM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">28°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>12PM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">31°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>1PM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">27°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>2PM</span>
@@ -265,39 +292,39 @@
                             </div>
                             <div class="temp-hour">
                                 <span>3PM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">27°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>4PM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">25°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>5PM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">20°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>6PM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">19°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>7PM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">17°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>8PM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">18°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>9PM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">21°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>10PM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">15°</div>
                             </div>
                             <div class="temp-hour">
                                 <span>11PM</span>
-                                <div class="temp-value">24°</div>
+                                <div class="temp-value">16°</div>
                             </div>
                         </div>
                     </div>
@@ -352,15 +379,15 @@
                     <h4>Lifestyle Tips</h4>
                     <div class="tips-container">
                         <div class="tip-card">
-                            <div class="tip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-volleyball-icon lucide-volleyball"><path d="M11.1 7.1a16.55 16.55 0 0 1 10.9 4"/><path d="M12 12a12.6 12.6 0 0 1-8.7 5"/><path d="M16.8 13.6a16.55 16.55 0 0 1-9 7.5"/><path d="M20.7 17a12.8 12.8 0 0 0-8.7-5 13.3 13.3 0 0 1 0-10"/><path d="M6.3 3.8a16.55 16.55 0 0 0 1.9 11.5"/><circle cx="12" cy="12" r="10"/></svg></div>
+                            <div class="tip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-swords-icon lucide-swords"><polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"/><line x1="13" x2="19" y1="19" y2="13"/><line x1="16" x2="20" y1="16" y2="20"/><line x1="19" x2="21" y1="21" y2="19"/><polyline points="14.5 6.5 18 3 21 3 21 6 17.5 9.5"/><line x1="5" x2="9" y1="14" y2="18"/><line x1="7" x2="4" y1="17" y2="20"/><line x1="3" x2="5" y1="19" y2="21"/></svg></div>
                             <div class="tip-content">
-                                <p>Light clothing recommended</p>
+                                <p>Wear UV protective sunglasses</p>
                             </div>
                         </div>
                         <div class="tip-card">
-                            <div class="tip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-umbrella-icon lucide-umbrella"><path d="M22 12a10.06 10.06 1 0 0-20 0Z"/><path d="M12 12v8a2 2 0 0 0 4 0"/><path d="M12 2v1"/></svg></div>
+                            <div class="tip-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-dumbbell-icon lucide-dumbbell"><path d="M17.596 12.768a2 2 0 1 0 2.829-2.829l-1.768-1.767a2 2 0 0 0 2.828-2.829l-2.828-2.828a2 2 0 0 0-2.829 2.828l-1.767-1.768a2 2 0 1 0-2.829 2.829z"/><path d="m2.5 21.5 1.4-1.4"/><path d="m20.1 3.9 1.4-1.4"/><path d="M5.343 21.485a2 2 0 1 0 2.829-2.828l1.767 1.768a2 2 0 1 0 2.829-2.829l-6.364-6.364a2 2 0 1 0-2.829 2.829l1.768 1.767a2 2 0 0 0-2.828 2.829z"/><path d="m9.6 14.4 4.8-4.8"/></svg></div>
                             <div class="tip-content">
-                                <p>67% chance of rain tonight</p>
+                                <p>Cold weather burns more calories !</p>
                             </div>
                         </div>
                     </div>
@@ -371,177 +398,5 @@
         </div>
     </div>
 </body>
-
-<script>
-
-    // Toggle Sidebar for mobile
-    function toggleSidebar() {
-        const sidebar = document.querySelector('.sidebar');
-        const toggleBtn = document.querySelector('.toggle-sidebar');
-
-        sidebar.classList.toggle('mobile-active');
-
-        if (sidebar.classList.contains('mobile-active')) {
-        toggleBtn.innerHTML = '✕';
-        } else {
-        toggleBtn.innerHTML = '☰';
-        }
-    }
-
-
-    // Chart.js configuration for daily temperature chart
-const ctx = document.getElementById('temperatureChart').getContext('2d');
-
-// Gradient background for fill
-const gradient = ctx.createLinearGradient(0, 0, 0, 300);
-gradient.addColorStop(0, 'rgba(0, 0, 0, 0.4)');
-gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-
-new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['Jan 02', 'Jan 03', 'Jan 04', 'Jan 05', 'Jan 06'],
-    datasets: [{
-      label: 'Avg Temp (°C)',
-      data: [26, 29, 18, 32, 20],
-      borderColor: '#ccc',
-      backgroundColor: gradient,
-      borderWidth: 2,
-      fill: true,
-      tension: 0.3,
-      pointRadius: 0,
-      pointHoverRadius: 6,
-      pointBackgroundColor: 'lightgray',
-      pointBorderColor: 'white',
-      pointBorderWidth: 2,
-      pointHitRadius: 15
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    animation: {
-      duration: 800,
-      easing: 'easeOutQuad'
-    },
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        backgroundColor: '#fff',
-        titleColor: '#000',
-        bodyColor: '#000',
-        borderColor: 'black',
-        borderWidth: 1,
-        padding: 12,
-        cornerRadius: 8,
-        displayColors: false,
-        caretSize: 6,
-        caretPadding: 6,
-        titleFont: {
-            family: 'Poppins',
-            size: 1,       
-            weight: '400'
-        },
-        bodyFont: {
-            family: 'Poppins',
-            size: 13,
-            weight: '500'
-        },
-        callbacks: {
-            title: () => '',
-
-            label: function(context) {
-            return [
-                'Temperature: ' + context.formattedValue + ' °C'
-            ];
-            },
-
-            afterLabel: function(context) {
-            return 'Date: ' + context.label;
-            }
-        },
-        // Custom text styling
-        bodySpacing: 6,
-        boxPadding: 6
-        }
-
-    },
-    scales: {
-      y: {
-        beginAtZero: false,
-        min: 15,
-        max: 35,
-        ticks: {
-          color: '#666666',
-          font: {
-            family: 'Poppins',
-            size: 12,
-            weight: '500'
-          },
-          maxTicksLimit: 5,
-          callback: function(value) {
-            return value + '°C';
-          }
-        },
-        grid: {
-          color: 'rgba(0, 0, 0, 0.05)',
-          drawBorder: false
-        }
-      },
-      x: {
-        offset: true,
-        ticks: {
-          color: '#666666',
-          font: {
-            family: 'Poppins',
-            size: 12,
-            weight: '500'
-          }
-        },
-        grid: {
-          display: false,
-          drawBorder: false
-        }
-      }
-    },
-    interaction: {
-      intersect: false,
-      mode: 'nearest',
-      axis: 'x'
-    },
-    elements: {
-      point: {
-        hoverRadius: 8,
-        hoverBorderWidth: 2
-      },
-      line: {
-        hoverBorderWidth: 2
-      }
-    },
-    hover: {
-      mode: 'nearest',
-      intersect: false,
-      animationDuration: 300
-    }
-  }
-}); 
-
-
-
-// Scrollable temperature section
-document.addEventListener('DOMContentLoaded', function() {
-    const scrollContainer = document.getElementById('scrollContainer');
-    const scrollWrapper = document.getElementById('scrollWrapper');
-
-    // Enable mouse wheel scrolling
-    scrollContainer.addEventListener('wheel', function(e) {
-        e.preventDefault();
-        this.scrollLeft += e.deltaY;
-    });
-});
-
-
-
-</script>
-
+<script src="script.js"></script>
 </html>
