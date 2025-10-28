@@ -1,1 +1,1 @@
-## *`Skycast-WeatherHub`*
+## `Skycast-WeatherHub`
